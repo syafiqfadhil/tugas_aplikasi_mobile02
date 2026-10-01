@@ -100,3 +100,4 @@ Program ini berhasil mengimplementasikan *Business Rule* perhitungan tarif parki
 1. Menggunakan **`enum`** untuk membatasi opsi `JenisKendaraan`, mencegah kesalahan pengetikan *(typo)*.
 2. Menggunakan **operator pembagian bulat (`~/`)** dan **modulus (`%`)** untuk mengonversi durasi menit menjadi jam serta mendeteksi sisa waktu untuk aturan pembulatan ke atas.
 3. Rumus `(totalJam - 1)` digunakan dengan tepat agar tarif jam pertama tidak ikut dikalikan dengan tarif jam berikutnya, menghindari *double charge* pada perhitungan total bayar.
+4. Menerapkan keyword final pada variabel yang nilainya sudah pasti dan tidak akan diubah lagi (seperti sisaMenit dan totalJam), menjaga keamanan data dari perubahan yang tidak sengaja.
