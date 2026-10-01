@@ -1,4 +1,4 @@
-# Perhitungan Tarif Parkir 🚗🏍️
+# Perhitungan Tarif Parkir 
 
 **Anggota Kelompok:**
 1. Fadhil Hidayattulloh
@@ -6,10 +6,10 @@
 
 ---
 
-## 📖 Tentang Program
-Program ini digunakan untuk menghitung total tarif parkir kendaraan berdasarkan jenis kendaraan (Motor atau Mobil) dan durasi waktu parkir (dalam satuan menit). Program ini dibuat murni menggunakan fungsi, operator pembagian bulat (`~/`), modulus (`%`), dan struktur `switch` tanpa menggunakan *Map* atau *Class*.
+## Tentang Program
+Program ini digunakan untuk menghitung total tarif parkir kendaraan berdasarkan jenis kendaraan (Motor atau Mobil) dan durasi waktu parkir (dalam satuan menit). Program ini dibuat murni menggunakan fungsi, operator pembagian bulat (`~/`), modulus (`%`), dan struktur `switch`.
 
-## 📋 Business Rule (Aturan Bisnis)
+## Business Rule (Aturan Bisnis)
 Berikut adalah aturan bisnis yang digunakan sebagai acuan logika perhitungan dalam program ini:
 
 | Kode | Business Rule |
@@ -27,37 +27,13 @@ Berikut adalah aturan bisnis yang digunakan sebagai acuan logika perhitungan dal
 
 ---
 
-## 🛤️ Alur Program (Flowchart)
-*Catatan: GitHub akan otomatis membaca kode di bawah ini dan merendernya menjadi gambar diagram.*
-
-```mermaid
-graph TD
-    A([Mulai]) --> B[/"Input<br>jenis kendaraan"/]
-    B --> C[/"Input<br>durasi parkir<br>(menit)"/]
-    C --> D["jam = durasi ~/ 60<br>menit = durasi % 60"]
-    
-    D --> E{"menit > 0 ?"}
-    E -- Ya --> F["jam = jam + 1"]
-    E -- Tidak --> G{"jam < 1 ?"}
-    F --> G
-    
-    G -- Ya --> H["jam = 1"]
-    G -- Tidak --> I{"Jenis kendaraan<br>?"}
-    H --> I
-    
-    I -- Motor --> J["totalTarif = 2000 +<br>(jam - 1) x 1000"]
-    I -- Mobil --> K["totalTarif = 5000 +<br>(jam - 1) x 3000"]
-    
-    J --> L["Ubah totalTarif<br>ke format Rupiah<br>(misal: Rp4.000)"]
-    K --> L
-    
-    L --> M[/"Tampilkan hasil<br>(jenis kendaraan, durasi, total tarif)"/]
-    M --> N([Selesai])
-```
+## Alur Program (Flowchart)
+Diagram alur (*flowchart*) dari program perhitungan tarif parkir:
+![Flowchart Parkir](./flowc.png)
 
 ---
 
-## 💻 Source Code
+## Source Code
 ```dart
 enum JenisKendaraan { motor, mobil }
 
@@ -105,7 +81,7 @@ void main() {
 
 ---
 
-## ✅ Hasil Pengujian
+## Hasil Pengujian
 Pengujian dilakukan berdasarkan skenario untuk memastikan logika durasi (pembulatan ke atas) dan pemilihan tarif (berdasarkan jenis kendaraan) berjalan sesuai Aturan Bisnis.
 
 | Skenario | Kendaraan | Durasi (Input) | Total Jam (Dibulatkan) | Expected Tarif (Output) | Status |
@@ -115,11 +91,9 @@ Pengujian dilakukan berdasarkan skenario untuk memastikan logika durasi (pembula
 | 3 | Mobil | 60 menit | 1 Jam | Rp5.000 | Sukses |
 | 4 | Mobil | 181 menit | 4 Jam* | Rp14.000 | Sukses |
 
-*\* Pada skenario 4 (181 menit), 180 menit adalah 3 jam, dan sisa 1 menit dibulatkan ke atas sehingga total dihitung menjadi 4 jam parkir.*
-
 ---
 
-## 📌 Kesimpulan
+## Kesimpulan
 Program ini berhasil mengimplementasikan *Business Rule* perhitungan tarif parkir menggunakan fitur dasar Dart:
 1. Menggunakan **`enum`** untuk membatasi opsi `JenisKendaraan`, mencegah kesalahan pengetikan *(typo)*.
 2. Menggunakan **operator pembagian bulat (`~/`)** dan **modulus (`%`)** untuk mengonversi durasi menit menjadi jam serta mendeteksi sisa waktu untuk aturan pembulatan ke atas.
