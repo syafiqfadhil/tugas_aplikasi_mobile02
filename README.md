@@ -31,7 +31,7 @@ Berikut adalah aturan bisnis yang digunakan sebagai acuan logika perhitungan dal
 Diagram alur (*flowchart*) dari program perhitungan tarif parkir:
 
 <p align="center">
-  <img src="./flowc.png" width="70%" alt="Flowchart Parkir">
+  <img src="./flow.png" width="70%" alt="Flowchart Parkir">
 </p>
 ---
 
